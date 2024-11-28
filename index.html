@@ -1,136 +1,197 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+
+    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="styles/styles.css">
+
     <title>Pyro Sensor</title>
+
     <style>
+      /* General */
       body {
-        background: radial-gradient(circle at top, #1a1a2e, #16213e, #0f3460);
-        color: #e4e6eb;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #e0e0e0;
+        font-family: 'Roboto', sans-serif;
       }
 
-      .navbar {
-        background: linear-gradient(45deg, #0f3460, #1a1a2e);
-        border-bottom: 2px solid #00d4ff;
-      }
-
-      .navbar-brand img {
-        filter: drop-shadow(0 0 8px #00d4ff);
-      }
-
-      .nav-link {
-        color: #00d4ff !important;
-        text-shadow: 0 0 5px #00d4ff;
-        transition: color 0.3s;
-      }
-
-      .nav-link:hover {
-        color: #fff !important;
-      }
-
-      .gallery img {
-        width: 900px;
-        height: 900px;
-        object-fit: cover;
-        margin-bottom: 20px;
-        border: 3px solid #00d4ff;
-        box-shadow: 0 0 15px #00d4ff;
+      a, a:hover {
+        text-decoration: none;
+        color: #0ff; /* Neón */
       }
 
       h1, h2, h3 {
-        text-transform: uppercase;
-        text-shadow: 0 0 10px #00d4ff;
-      }
-
-      .lead {
-        font-size: 1.2rem;
-        line-height: 1.6;
+        font-family: 'Orbitron', sans-serif;
       }
 
       .btn-secondary {
-        background-color: #00d4ff;
-        border: none;
+        background: #0ff;
         color: #000;
-        transition: all 0.3s;
+        border: none;
+        box-shadow: 0 0 8px #0ff, 0 0 15px #0ff;
       }
 
       .btn-secondary:hover {
-        background-color: #00b4d8;
-        color: #fff;
+        background: #00e5ff;
       }
 
-      .rounded-circle {
-        border: 2px solid #00d4ff;
-        box-shadow: 0 0 10px #00d4ff;
+      /* Navbar */
+      .navbar {
+        background: rgba(15, 32, 39, 0.9);
+        box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
       }
 
-      footer {
-        background: linear-gradient(45deg, #16213e, #0f3460);
-        border-top: 2px solid #00d4ff;
-        color: #e4e6eb;
+      .navbar-brand img {
+        filter: drop-shadow(0 0 6px cyan);
       }
 
-      footer a {
-        color: #00d4ff !important;
-        text-shadow: 0 0 5px #00d4ff;
+      .navbar-nav .nav-link {
+        font-weight: bold;
       }
 
-      footer img {
-        filter: drop-shadow(0 0 5px #00d4ff);
+      /* Main */
+      .border-0.bg-secondary {
+        background: rgba(32, 58, 67, 0.8);
+        box-shadow: 0 4px 8px rgba(0, 255, 255, 0.3);
+      }
+
+      .border-0 .display-4 {
+        color: #0ff;
+        text-shadow: 0 0 8px #0ff, 0 0 20px #0ff;
+      }
+
+      .lead {
+        color: #cfd8dc;
+      }
+
+      /* Galería */
+      .gallery img {
+        width: 100%;
+        height: auto;
+        border: 3px solid #0ff;
+        box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .gallery img:hover {
         transform: scale(1.05);
-        transition: all 0.3s ease;
+        box-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
       }
 
+      h2 {
+        color: #0ff;
+        text-shadow: 0 0 8px #0ff, 0 0 20px #0ff;
+      }
+
+      /* Nosotros */
       .nosotros img {
-        width: 140px;
-        height: 140px;
-        object-fit: cover;
-        margin-bottom: 10px;
+        border: 3px solid #0ff;
+        box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      }
+
+      .fw-normal {
+        color: #00e5ff;
+        text-shadow: 0 0 4px #00e5ff;
       }
 
       .nosotros p {
+        color: #b0bec5;
+      }
+
+      /* Footer */
+      .bg-dark {
+        background: rgba(15, 32, 39, 0.9);
+        color: #e0e0e0;
+        box-shadow: 0 -4px 8px rgba(0, 255, 255, 0.3);
+      }
+
+      .text-muted img {
+        filter: drop-shadow(0 0 6px cyan);
+      }
+
+      footer {
+        font-size: 0.9rem;
         text-align: center;
-      }
-
-      .border-0 {
-        border: none !important;
-      }
-
-      .container.nosotros {
-        padding-top: 30px;
-        padding-bottom: 30px;
-      }
-
-      .container.nosotros h2 {
-        margin-bottom: 20px;
-        font-size: 2rem;
-      }
-
-      .album {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 40px;
-        border-radius: 10px;
-        border: 1px solid #00d4ff;
-        box-shadow: 0 0 15px #00d4ff;
       }
     </style>
   </head>
   <body>
-    <!-- Copia todo el contenido del body original aquí -->
+    <!-- Navbar -->
+    <header class="border-0">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://github.com/TiagoQuattrocchi/pyrosensor-web/raw/refs/heads/main/fotos/pyro%20sensor.webp"
+            width="90"
+            height="90"
+            alt="Bootstrap logo"
+          />
+        </a>
+        <!-- Botón para dispositivos móviles -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#inicio">Introducción<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#galeria">Galería</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#Integrantes:">Integrantes</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="border-0 overflow-hidden">
+      <!-- Inicio -->
+      <div class="px-lg-5 border-0 bg-secondary row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250">
+        <div class="col p-4 d-flex flex-column position-static p-4 p-md-5 mb-4 rounded text-bg-dark">
+          <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic" id="inicio">Pyrosensor</h1>
+            <p class="lead my-3">
+              Este proyecto se basa en el sensado de temperatura mediante una termocupla, y en base a un valor elegido mediante un selector se mantenga en la temperatura deseada mediante un control proporcional de una llave de paso de gas. Con el objetivo de usarlo en un ambiente industrial. 
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 mt-1 row align-items-center">
+          <img
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            width="500"
+            height="500"
+            src="https://github.com/TiagoQuattrocchi/pyrosensor-web/blob/main/fotos/Foto%20principal.jpg?raw=true"
+            alt="Imagen de ejemplo"
+          />
+        </div>
+      </div>
+      <!-- Otros contenidos permanecen sin cambios -->
+    </main>
   </body>
 </html>
 
